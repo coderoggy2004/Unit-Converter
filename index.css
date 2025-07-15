@@ -1,0 +1,307 @@
+        /* Custom CSS for the Unit Converter */
+
+        /* Define new pastel color theme variables */
+        :root {
+            /* Light theme pastel colors */
+            --light-bg: #eef4ed; /* Very Light Grey/Green */
+            --light-card-bg: #8da9c4; /* Light Blue-Grey */
+            --light-text: #0b2545; /* Dark Blue */
+            --light-button: #134074; /* Medium Blue */
+            --light-border: #0b2545; /* Dark Blue for borders */
+        }
+
+        /* Dark theme pastel colors - adjusted for contrast */
+        .dark-theme {
+            --dark-bg: #0b2545; /* Dark Blue as background */
+            --dark-card-bg: #13315c; /* Slightly Lighter Dark Blue for cards */
+            --dark-text: #eef4ed; /* Very Light Grey/Green for text */
+            --dark-button: #8da9c4; /* Light Blue-Grey for buttons */
+            --dark-border: #eef4ed; /* Very Light Grey/Green for borders */
+        }
+
+        /* Apply font family globally and smooth transitions for theme changes */
+        body {
+            font-family: 'Comic Neue', cursive; /* Applied Comic Neue font */
+            transition: background-color 0.4s ease, color 0.4s ease;
+            margin: 0; /* Remove default body margin */
+            display: flex; /* Use flexbox for centering */
+            flex-direction: column; /* Stack items vertically */
+            align-items: center; /* Center horizontally */
+            justify-content: center; /* Center vertically */
+            min-height: 100vh; /* Ensure body takes full viewport height */
+            padding: 1rem; /* Default padding for small screens */
+            box-sizing: border-box; /* Include padding in element's total width and height */
+        }
+
+        /* Base styles for light theme */
+        body.light-theme {
+            background-color: var(--light-bg);
+            color: var(--light-text);
+        }
+
+        .light-theme .card {
+            background-color: var(--light-card-bg);
+            border-color: var(--light-border);
+        }
+
+        .light-theme .input-field,
+        .light-theme .select-field {
+            background-color: white; /* White background for inputs in light mode */
+            color: var(--light-text);
+            border-color: var(--light-border);
+        }
+
+        .light-theme .button {
+            background-color: var(--light-button);
+            color: white; /* White text for buttons in light mode */
+        }
+
+        /* Styles for dark theme */
+        body.dark-theme {
+            background-color: var(--dark-bg);
+            color: var(--dark-text);
+        }
+
+        .dark-theme .card {
+            background-color: var(--dark-card-bg);
+            border-color: var(--dark-border);
+        }
+
+        .dark-theme .input-field,
+        .dark-theme .select-field {
+            background-color: #0c2e55; /* A slightly lighter shade of dark blue for inputs */
+            color: var(--dark-text);
+            border-color: var(--dark-border);
+        }
+
+        .dark-theme .button {
+            background-color: var(--dark-button);
+            color: var(--dark-bg); /* Pastel text for buttons in dark mode */
+        }
+
+        /* Header styling */
+        .header {
+            width: 100%;
+            max-width: calc(100% - 2rem); /* Adjusted max-width for small screens */
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem; /* Equivalent to mb-8 */
+        }
+
+        .header h1 {
+            font-family: 'Sniglet', cursive; /* Applied Sniglet font */
+            font-size: 2.5rem; /* Default for mobile */
+            font-weight: 700; /* font-bold */
+            text-align: center;
+            margin: 0; /* Remove default margin */
+        }
+
+        /* Custom switch button styling */
+        .theme-switch {
+            position: relative;
+            display: inline-block;
+            width: 60px;
+            height: 34px;
+        }
+
+        .theme-switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: var(--light-button); /* Light theme slider background */
+            transition: .4s;
+            border-radius: 34px;
+        }
+
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 26px;
+            width: 26px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            transition: .4s;
+            border-radius: 50%;
+        }
+
+        input:checked + .slider {
+            background-color: var(--dark-button); /* Dark theme slider background */
+        }
+
+        input:checked + .slider:before {
+            transform: translateX(26px);
+        }
+
+        /* Aesthetic enhancements for various elements */
+        .card {
+            width: 100%;
+            max-width: calc(100% - 2rem); /* Adjusted max-width for small screens */
+            padding: 1.5rem; /* Default padding for mobile */
+            border-radius: 1.25rem; /* More rounded corners */
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15); /* More pronounced shadow */
+            border-width: 2px;
+            border-style: solid;
+            transition: background-color 0.4s ease, border-color 0.4s ease, box-shadow 0.4s ease;
+        }
+
+        /* New class for the category select container to control its bottom margin */
+        .category-select-container {
+            margin-bottom: 2.5rem; /* Increased spacing above the 'From Value/Unit' section */
+        }
+
+        .label {
+            display: block;
+            font-size: 1.125rem; /* text-lg */
+            font-weight: bold; /* font-medium */
+            margin-bottom: 0.75rem; /* Increased spacing between label and input */
+        }
+
+        .input-field,
+        .select-field {
+            width: 100%;
+            border-width: 2px; /* Thicker border */
+            border-style: solid;
+            padding: 0.85rem 1.25rem; /* More padding */
+            border-radius: 0.75rem; /* Rounded input fields */
+            font-size: 1.1rem; /* Slightly larger font */
+            transition: all 0.3s ease; /* Smooth transitions for focus and color */
+            box-sizing: border-box; /* Include padding in element's total width and height */
+        }
+
+        .input-field:focus,
+        .select-field:focus {
+            outline: none;
+            /* Dynamic focus ring using multiple box-shadows */
+            box-shadow: 0 0 0 4px var(--light-button);
+            border-color: transparent; /* Hide original border on focus */
+        }
+
+        .dark-theme .input-field:focus,
+        .dark-theme .select-field:focus {
+            box-shadow: 0 0 0 4px var(--dark-button); /* Dark theme specific focus ring */
+        }
+
+        .input-field[readonly] {
+            background-color: #f3f4f6; /* bg-gray-100 */
+            cursor: not-allowed;
+        }
+        .dark-theme .input-field[readonly] {
+            background-color: #374151; /* dark:bg-gray-700 */
+        }
+
+        .input-group {
+            display: flex;
+            flex-direction: column; /* Stack vertically by default */
+            gap: 1.5rem; /* Increased gap for spacing between input types when stacked */
+            margin-bottom: 1.5rem; /* Consistent spacing between input groups */
+        }
+        .input-group > div {
+            flex: 1; /* flex-1 */
+        }
+        .input-group:last-of-type {
+            margin-bottom: 2rem; /* Slightly more space before the convert button */
+        }
+
+
+        .button {
+            width: 100%;
+            padding: 0.9rem 1.5rem; /* More padding for button */
+            border-radius: 0.75rem; /* Rounded button */
+            font-size: 1.2rem; /* Larger font for button */
+            font-weight: 600; /* Bolder text */
+            transition: all 0.3s ease; /* Smooth transitions for hover effects */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Subtle button shadow */
+            border: none; /* Remove default button border */
+            cursor: pointer; /* Indicate clickable */
+        }
+
+        .button:hover {
+            transform: translateY(-2px); /* Slight lift effect on hover */
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2); /* More pronounced shadow on hover */
+        }
+
+        /* Responsive adjustments for medium and large screens */
+        @media (min-width: 640px) { /* Equivalent to sm breakpoint */
+            body {
+                padding: 1.5rem; /* sm:p-6 */
+            }
+            .header {
+                max-width: 40rem; /* Revert to original max-width for larger screens */
+            }
+            .header h1 {
+                font-size: 3rem; /* sm:text-4xl */
+            }
+            .card {
+                padding: 2rem; /* sm:p-8 */
+                margin-top: 0; /* Remove top margin for larger screens */
+                margin-bottom: 0; /* Remove bottom margin for larger screens */
+                max-width: 40rem; /* Revert to original max-width for larger screens */
+            }
+            .input-group {
+                flex-direction: row; /* sm:flex-row */
+                gap: 1.5rem; /* Consistent gap for horizontal layout */
+            }
+            .input-group > div {
+                margin-bottom: 0; /* Remove margin when horizontal */
+            }
+        }
+
+        @media (min-width: 768px) { /* Equivalent to md breakpoint */
+            body {
+                padding: 2rem; /* md:p-8 */
+            }
+            .header h1 {
+                font-size: 3.75rem; /* md:text-5xl */
+            }
+            .card {
+                padding: 2.5rem; /* md:p-10 */
+            }
+        }
+
+        /* New media query for larger desktops */
+        @media (min-width: 1024px) { /* Equivalent to lg breakpoint */
+            .header,
+            .card {
+                max-width: 50rem; /* Increase max-width for larger screens */
+            }
+            body {
+                padding: 3rem; /* Increase overall padding */
+            }
+            .header h1 {
+                font-size: 4.5rem; /* Slightly larger title */
+            }
+            .label {
+                font-size: 1.25rem; /* Slightly larger labels */
+            }
+            .input-field,
+            .select-field {
+                padding: 1rem 1.5rem; /* More padding for inputs */
+                font-size: 1.2rem; /* Slightly larger input font */
+            }
+            .button {
+                padding: 1.1rem 1.8rem; /* More padding for button */
+                font-size: 1.3rem; /* Slightly larger button font */
+            }
+        }
+
+        /* New media query for extra large desktops */
+        @media (min-width: 1280px) { /* Equivalent to xl breakpoint */
+            .header,
+            .card {
+                max-width: 60rem; /* Even larger max-width for extra large screens */
+            }
+            body {
+                padding: 4rem; /* Even more overall padding */
+            }
+        }

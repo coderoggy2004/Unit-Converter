@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unit Converter</title>
+    <link rel="stylesheet" href="index.css">
+    <!-- Google Fonts - Inter, Sniglet, and Comic Neue for a clean, modern look -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Comic+Neue:wght@400;700&family=Sniglet&display=swap" rel="stylesheet">
+</head>
+<body class="light-theme">
+    <!-- Header section with title and theme switch -->
+    <header class="header">
+        <h1>Unit Converter</h1>
+        <!-- Theme switch button -->
+        <label class="theme-switch">
+            <input type="checkbox" id="themeToggle">
+            <span class="slider"></span>
+        </label>
+    </header>
+
+    <!-- Main conversion card -->
+    <div class="card">
+        <!-- Dropdown for selecting the unit category (e.g., Length, Weight) -->
+        <div class="category-select-container"> <!-- Added new class for spacing control -->
+            <label for="unitCategory" class="label">Select Category:</label>
+            <select id="unitCategory" class="select-field"></select>
+        </div>
+
+        <!-- Input group for "From" unit and value -->
+        <div class="input-group">
+            <div>
+                <label for="fromValue" class="label">From Value:</label>
+                <input type="number" id="fromValue" value="1" class="input-field">
+            </div>
+            <div>
+                <label for="fromUnit" class="label">From Unit:</label>
+                <select id="fromUnit" class="select-field"></select>
+            </div>
+        </div>
+
+        <!-- Input group for "To" unit and converted value -->
+        <div class="input-group">
+            <div>
+                <label for="toValue" class="label">To Value:</label>
+                <input type="number" id="toValue" readonly class="input-field">
+            </div>
+            <div>
+                <label for="toUnit" class="label">To Unit:</label>
+                <select id="toUnit" class="select-field"></select>
+            </div>
+        </div>
+
+        <!-- Convert button -->
+        <button id="convertButton" class="button">Convert</button>
+    </div>
+
+
+    <script src="index.js"></script>
+</body>
+</html>
