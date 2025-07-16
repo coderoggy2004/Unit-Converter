@@ -31,8 +31,6 @@
             min-height: 100vh; /* Ensure body takes full viewport height */
             padding: 1rem; /* Default padding for small screens */
             box-sizing: border-box; /* Include padding in element's total width and height */
-            overflow-x: hidden; /* Prevent horizontal scrollbar */
-            overflow-y: hidden; /* Prevent vertical scrollbar */
         }
 
         /* Base styles for light theme */
